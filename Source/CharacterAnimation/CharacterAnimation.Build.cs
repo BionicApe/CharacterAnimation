@@ -38,6 +38,7 @@ public class CharacterAnimation : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"AnimGraphRuntime"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

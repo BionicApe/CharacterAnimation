@@ -7,6 +7,7 @@
 #include "GameFramework/Controller.h"
 #include "Implementables/LookingAtLocationInterface.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "AnimGraphRuntime/Public/KismetAnimationLibrary.h"
 
 
 bool UMainCharacterAnimInstance::TrySetCharacterOwner()
@@ -40,7 +41,7 @@ void UMainCharacterAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 		PawnSpeed.Z = 0;
 
 		CalculatedSpeed = PawnSpeed.Size();
-		CalculatedDirection = CalculatedSpeed > KINDA_SMALL_NUMBER ? CalculateDirection(PawnSpeed, CharacterOwner->GetActorRotation()) : 0;
+		CalculatedDirection = CalculatedSpeed > KINDA_SMALL_NUMBER ? UKismetAnimationLibrary::CalculateDirection(PawnSpeed, CharacterOwner->GetActorRotation()) : 0;
 
 		const FRotator ControlRot = CharacterOwner->GetControlRotation();
 
